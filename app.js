@@ -35,7 +35,7 @@ const utils = require('./lib/utils')
 const packageInfo = require('./package.json')
 
 // Set configuration variables
-const port = parseInt(process.env.PORT || config.port, 10) || 2000
+const port = parseInt(`${process.env.PORT || config.port}`, 10) || 2000
 
 // Initialise applications
 const app = express()
@@ -104,7 +104,6 @@ if (useCookieSessionStore === 'true') {
     sessionInCookie({
       ...sessionOptions,
       cookieName: sessionName,
-      proxy: true,
       requestKey: 'session'
     })
   )

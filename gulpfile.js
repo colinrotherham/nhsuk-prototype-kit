@@ -16,7 +16,7 @@ const config = require('./app/config')
 const { findAvailablePort } = require('./lib/utils')
 
 // Set configuration variables
-const port = parseInt(process.env.PORT || config.port, 10) || 2000
+const port = parseInt(`${process.env.PORT || config.port}`, 10) || 2000
 
 // Delete all the files in /public build directory
 function cleanPublic() {
@@ -92,7 +92,7 @@ async function startNodemon(done) {
     return
   }
 
-  process.env.PORT = availablePort
+  process.env.PORT = `${availablePort}`
   process.env.WATCH = 'true'
 
   const server = nodemon({
