@@ -48,6 +48,7 @@ const useCookieSessionStore =
   process.env.USE_COOKIE_SESSION_STORE || config.useCookieSessionStore
 
 // Add variables that are available in all views
+// @ts-expect-error -- Allow duplicate identifier
 app.locals.asset_path = '/public/'
 app.locals.useAutoStoreData = useAutoStoreData === 'true'
 app.locals.useCookieSessionStore = useCookieSessionStore === 'true'
@@ -231,6 +232,7 @@ app.post(/^\/([^.]+)$/, (req, res) => {
   res.redirect(
     urlFormat({
       pathname: `/${req.params[0]}`,
+      // @ts-expect-error -- Allow incorrect types
       query: req.query
     })
   )
@@ -239,6 +241,7 @@ app.post(/^\/([^.]+)$/, (req, res) => {
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error(`Page not found: ${req.path}`)
+  // @ts-expect-error -- Allow incorrect types
   err.status = 404
   next(err)
 })
