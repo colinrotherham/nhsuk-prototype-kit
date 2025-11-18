@@ -10,10 +10,10 @@ jest.mock('../../lib/core_filters')
 jest.mock('../../app/filters')
 
 test('addNunjucksFilters filter added', () => {
-  coreFilters.mockImplementation(() => {
+  jest.mocked(coreFilters).mockImplementation(() => {
     return { 1: 'core-filter' }
   })
-  customFilters.mockImplementation(() => {
+  jest.mocked(customFilters).mockImplementation(() => {
     return { 2: 'custom-filter' }
   })
   const mockEnv = {

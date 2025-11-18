@@ -35,7 +35,7 @@ const utils = require('./lib/utils')
 const packageInfo = require('./package.json')
 
 // Set configuration variables
-const port = parseInt(process.env.PORT || config.port, 10) || 2000
+const port = parseInt(`${process.env.PORT || config.port}`, 10) || 2000
 
 // Initialise applications
 const app = express()
@@ -48,6 +48,7 @@ const useCookieSessionStore =
   process.env.USE_COOKIE_SESSION_STORE || config.useCookieSessionStore
 
 // Add variables that are available in all views
+// @ts-expect-error -- Allow duplicate identifier
 app.locals.asset_path = '/public/'
 app.locals.useAutoStoreData = useAutoStoreData === 'true'
 app.locals.useCookieSessionStore = useCookieSessionStore === 'true'
@@ -104,7 +105,6 @@ if (useCookieSessionStore === 'true') {
     sessionInCookie({
       ...sessionOptions,
       cookieName: sessionName,
-      proxy: true,
       requestKey: 'session'
     })
   )
@@ -232,6 +232,7 @@ app.post(/^\/([^.]+)$/, (req, res) => {
   res.redirect(
     urlFormat({
       pathname: `/${req.params[0]}`,
+      // @ts-expect-error -- Allow incorrect types
       query: req.query
     })
   )
@@ -240,13 +241,21 @@ app.post(/^\/([^.]+)$/, (req, res) => {
 // Catch 404 and forward to error handler
 app.use((req, res, next) => {
   const err = new Error(`Page not found: ${req.path}`)
+  // @ts-expect-error -- Allow incorrect types
   err.status = 404
   next(err)
 })
 
 // Display error
-app.use((err, req, res) => {
-  console.error(err.message)
+app.use((err, req, res, next) => {
+  if (res.headersSent) {
+    return next(err)
+  }
+
+  if (err.status !== 404) {
+    console.error(err)
+  }
+
   res.status(err.status || 500)
   res.send(err.message)
 })

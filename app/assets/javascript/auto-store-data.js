@@ -4,10 +4,10 @@
 // later unchecked
 const forms = document.querySelectorAll('form')
 
-for (let form of forms) {
+forms.forEach((form) => {
   form.addEventListener('submit', () => {
     const checkboxes = form.querySelectorAll("input[type='checkbox']")
-    const names = {}
+    const names = /** @type {{ [key: string]: boolean }} */ ({})
 
     checkboxes.forEach((checkbox) => {
       if (!names[checkbox.name]) {
@@ -21,4 +21,4 @@ for (let form of forms) {
       }
     })
   })
-}
+})
