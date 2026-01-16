@@ -228,10 +228,10 @@ exampleTemplatesApp.get(/^([^.]+)$/, (req, res, next) => {
 app.use('/prototype-admin', prototypeAdminRoutes)
 
 // Redirect all POSTs to GETs - this allows users to use POST for autoStoreData
-app.post(/^\/([^.]+)$/, (req, res) => {
+app.post(/^\/([^.]+)?$/, (req, res) => {
   res.redirect(
     urlFormat({
-      pathname: `/${req.params[0]}`,
+      pathname: `/${req.params[0] ?? ''}`,
       // @ts-expect-error -- Allow incorrect types
       query: req.query
     })
