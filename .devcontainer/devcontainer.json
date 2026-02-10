@@ -1,5 +1,5 @@
 {
-  "name": "NHS Prototype Kit",
+  "name": "Service name goes here",
   // codespaces seems to have an issue using port 2000 so setting to 2001 for the NHS Prototype Kit
   "runArgs": ["--env", "PORT=2001"],
   "portsAttributes": {
@@ -25,7 +25,7 @@
   "postCreateCommand": "npm install",
   // A command to run each time a tool has successfully attached to the container
   "postAttachCommand": {
-    "server": "npm run watch"
+    "server": "npm start"
   },
   // codespace customisations
   "customizations": {

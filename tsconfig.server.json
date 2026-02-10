@@ -6,8 +6,7 @@
   "include": [
     "./app.js",
     "./app/**/*.js",
-    "./lib/**/*.js",
-    "./typings/**/*.d.ts"
+    "./node_modules/nhsuk-prototype-kit/**/*.js"
   ],
-  "exclude": ["./app/assets", "**/*.test.js"]
+  "exclude": ["./app/javascripts", "**/*.test.js"]
 }
