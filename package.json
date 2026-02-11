@@ -15,6 +15,7 @@
     "lint:types": "tsc --build tsconfig.json --pretty"
   },
   "dependencies": {
+    "express": "^5.2.1",
     "nhsuk-frontend": "^10.3.1",
     "nhsuk-prototype-kit": "^8.0.1"
   },
