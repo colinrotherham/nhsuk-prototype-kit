@@ -10,6 +10,9 @@ node_modules/
 # Output of 'tsc --build'
 *.tsbuildinfo
 
+# Environment variables file
+.env
+
 # System Files
 .DS_Store
 Thumbs.db
