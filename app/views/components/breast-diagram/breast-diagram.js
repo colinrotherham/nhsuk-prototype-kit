@@ -4,8 +4,8 @@ import {
   ConfigurableComponent,
   ElementError
 } from '/nhsuk-frontend/nhsuk-frontend.min.js'
-import { ImageMap } from './image-map.js'
-import { ImageMarker } from './image-marker.js'
+import { ImageMap } from '../image-map/image-map.js'
+import { ImageMarker } from '../image-marker/image-marker.js'
 
 /**
  * Breast diagram component
@@ -378,5 +378,5 @@ function isValid(value) {
 
 /**
  * @import { Schema } from 'nhsuk-frontend/dist/nhsuk/common/configuration/index.mjs'
- * @import { ImageMapPayload, ImageMapListener } from './image-map.js'
+ * @import { ImageMapPayload, ImageMapListener } from '../image-map/image-map.js'
  */

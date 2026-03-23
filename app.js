@@ -6,7 +6,10 @@ import { routes } from './app/routes.js'
 const prototype = await NHSPrototypeKit.init({
   serviceName: 'Image map',
   buildOptions: {
-    entryPoints: ['app/stylesheets/main.scss', 'app/javascripts/*.js']
+    entryPoints: [
+      'app/stylesheets/application.scss',
+      'app/javascripts/application.js'
+    ]
   },
   viewsPath: ['app/views/'],
   routes,
