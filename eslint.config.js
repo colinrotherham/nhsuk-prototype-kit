@@ -1,7 +1,7 @@
 import { join, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { includeIgnoreFile } from '@eslint/compat'
+import { includeIgnoreFile } from '@eslint/config-helpers'
 import eslint from '@eslint/js'
 import configPrettier from 'eslint-config-prettier/flat'
 import pluginESx from 'eslint-plugin-es-x'
@@ -190,11 +190,6 @@ export default defineConfig([
   },
   globalIgnores([
     '**/public/**',
-
-    // Enable dotfile linting
-    '!.*',
-    'node_modules',
-    'node_modules/.*',
 
     // Prevent CHANGELOG history changes
     'CHANGELOG.md'
