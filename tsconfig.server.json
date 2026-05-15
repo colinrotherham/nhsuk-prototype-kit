@@ -9,5 +9,10 @@
     "app/**/*.js",
     "node_modules/nhsuk-prototype-kit/**/*.js"
   ],
-  "exclude": ["app/javascripts", "app/views/components", "**/*.test.js"]
+  "exclude": [
+    "app/javascripts",
+    "app/views/components",
+    "node_modules/nhsuk-prototype-kit/lib/javascripts/**/*.js",
+    "**/*.test.js"
+  ]
 }
