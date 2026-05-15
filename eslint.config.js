@@ -67,6 +67,18 @@ export default defineConfig([
         {
           startLines: 1
         }
+      ],
+
+      // Prefer rules that are type aware
+      'no-redeclare': 'off',
+      'no-undef': 'off',
+      'no-unused-vars': 'off',
+      '@typescript-eslint/no-unused-vars': [
+        'error',
+        {
+          argsIgnorePattern: '^_',
+          varsIgnorePattern: '^_'
+        }
       ]
     }
   },
