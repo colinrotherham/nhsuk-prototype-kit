@@ -5,8 +5,6 @@ import { includeIgnoreFile } from '@eslint/compat'
 import eslint from '@eslint/js'
 import configPrettier from 'eslint-config-prettier/flat'
 import pluginESx from 'eslint-plugin-es-x'
-import pluginJest from 'eslint-plugin-jest'
-import pluginJestDom from 'eslint-plugin-jest-dom'
 import pluginJsdoc from 'eslint-plugin-jsdoc'
 import pluginNode from 'eslint-plugin-n'
 import pluginNodeImport from 'eslint-plugin-node-import'
@@ -176,18 +174,6 @@ export default defineConfig([
       'jsdoc/require-returns-description': 'off',
       'jsdoc/require-returns-type': 'off',
       'jsdoc/require-returns': 'off'
-    }
-  },
-  {
-    // Configure ESLint in test files
-    files: ['**/*.test.{cjs,js,mjs}'],
-    extends: [
-      pluginJest.configs['flat/recommended'],
-      pluginJest.configs['flat/style'],
-      pluginJestDom.configs['flat/recommended']
-    ],
-    languageOptions: {
-      globals: pluginJest.environments.globals.globals
     }
   },
   globalIgnores([
