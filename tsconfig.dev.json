@@ -1,7 +1,8 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
+    "strict": false,
     "types": ["node"]
   },
-  "include": ["./*.config.js", "./*.config.mjs", "./.prettierrc.js"]
+  "include": ["*.config.js", "*.config.mjs", ".prettierrc.js"]
 }

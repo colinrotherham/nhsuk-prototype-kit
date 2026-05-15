@@ -1,12 +1,13 @@
 {
   "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "checkJs": true
+    "checkJs": true,
+    "types": ["node"]
   },
   "include": [
-    "./app.js",
-    "./app/**/*.js",
-    "./node_modules/nhsuk-prototype-kit/**/*.js"
+    "app.js",
+    "app/**/*.js",
+    "node_modules/nhsuk-prototype-kit/**/*.js"
   ],
-  "exclude": ["./app/javascripts", "./app/views/components", "**/*.test.js"]
+  "exclude": ["app/javascripts", "app/views/components", "**/*.test.js"]
 }
