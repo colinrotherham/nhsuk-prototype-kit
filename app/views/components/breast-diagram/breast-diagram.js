@@ -1,12 +1,12 @@
-import {
-  createAll,
-  isObject,
-  ConfigurableComponent,
-  ElementError
-} from '/nhsuk-frontend/nhsuk-frontend.min.js'
 import { ImageKey } from '../image-key/image-key.js'
 import { ImageMap } from '../image-map/image-map.js'
 import { ImageMarker } from '../image-marker/image-marker.js'
+import {
+  ConfigurableComponent,
+  ElementError,
+  createAll,
+  isObject
+} from '/nhsuk-frontend/nhsuk-frontend.min.js'
 
 const FEATURE_ID_PENDING = 'pending'
 const FEATURE_ID_OTHER = 'other_feature'
