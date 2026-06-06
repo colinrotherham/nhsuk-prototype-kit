@@ -21,7 +21,7 @@
     "esbuild-sass-plugin": "^3.7.0",
     "express": "^5.2.1",
     "nhsuk-frontend": "^10.4.2",
-    "nhsuk-prototype-kit": "^8.2.3",
+    "nhsuk-prototype-kit": "^8.3.0",
     "postcss": "^8.5.14"
   },
   "devDependencies": {
